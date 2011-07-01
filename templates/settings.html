@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% if message %}
+				<div class="message">
+					<img src="{{ url_for("static", filename="error.png") }}" alt="Fehler: ">
+					<span>{{ message }}</span>
+				</div>
+			{% endif %}
+			<form action="{{ url_for("settings") }}" method="post" enctype="multipart/form-data" id="login">
+				<h2>Einstellungen</h2>
+				<h3>Avatar ändern</h3>
+				<table>
+					<tr>
+						<td>
+							<img src="{{ url_for("static", filename="avatars/"+session["username"]+".png") }}" alt="Avatar">
+						</td>
+						<td>
+							<input type="file" name="avatar_upl">
+						</td>
+					</tr>
+				</table>
+				<h3>Passwort ändern</h3>
+				<table>
+					<tr>
+						<td>Neues Passwort:</td>
+						<td><input type="password" name="new_pw"></td>
+					</tr>
+					<tr>
+						<td>Wiederholen:</td>
+						<td><input type="password" name="new_pw_re"></td>
+					</tr>
+				</table>
+				<h3>Account löschen</h3>
+				<table>
+					<tr>
+						<td>Den Wert eintippen:</td>
+						<td>{{ session.del_code }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" name="delete_prof"></td>
+					</tr>
+				</table>
+				<h3>Bestätigen</h3>
+				<table>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Speichern"></td>
+					</tr>
+				</table>
+			</form>
+{% endblock %}

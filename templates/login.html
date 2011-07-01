@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+			{% if message %}
+				<div class="message">
+					<img src="{{ url_for("static", filename="error.png") }}" alt="Fehler: ">
+					<span>{{ message }}</span>
+				</div>
+			{% endif %}
+			<form action="{{ url_for("login") }}" method="post" id="login">
+				<h2>Login</h2>
+				<table>
+					<tr>
+						<td>Benutzername:</td>
+						<td><input type="text" name="username"></td>
+					</tr>
+					<tr>
+						<td>Passwort:</td>
+						<td><input type="password" name="password"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Anmelden"></td>
+					</tr>
+				</table>
+			</form>
+{% endblock %}

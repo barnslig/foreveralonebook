@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>foreveralonebook</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+		<script type="text/javascript">
+			function count_keys(whattocount) {
+				var whattocount = document.getElementById("entry").value;
+				var remain = 170-whattocount.length;
+				document.getElementById("counter").innerHTML = remain;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="all">
+			<header>
+				<a href="{{ url_for("index") }}">
+					<h1>foreveralonebook</h1>
+				</a>
+				<nav>
+					<ul>
+						{% block menu %}
+							{% include "menu.html" %}
+						{% endblock %}
+					</ul>
+				</nav>
+			</header>
+			<div id="content">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+		<footer>
+			<section id="footer_left">
+				Proudly made with <a href="http://flask.pocoo.org">flask</a> and <a href="http://python.org">Python</a>.
+			</section>
+			<section id="footer_right">
+				<a href="http://knowyourmeme.com/memes/forever-alone">Foo</a> | <a href="http://telelo.de/index.php/impressum">Bar</a><br>
+				<a href="https://caracl.de">
+					<img src="static/caracl.png" alt="Powered by caracl." title="Powered by caracl.">
+				</a>
+			</section>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+{% block menu %}
+	{% if "username" in session %}
+		<li{% if request.path == url_for("index") %} id="m_active" {% endif %}><a href="{{ url_for("index") }}">Startseite</a></li>
+		<li{% if request.path == url_for("settings") %} id="m_active" {% endif %}><a href="{{ url_for("settings") }}">Einstellungen</a></li>
+		<li><a href="{{ url_for("logout") }}">Abmelden</a></li>
+	{% else %}
+		<li{% if request.path == url_for("index") %} id="m_active" {% endif %}><a href="{{ url_for("index") }}">Startseite</a></li>
+		<li{% if request.path == url_for("register") %} id="m_active" {% endif %}><a href="{{ url_for("register") }}">Registrieren</a></li>
+		<li{% if request.path == url_for("login") %} id="m_active" {% endif %}><a href="{{ url_for("login") }}">Anmelden</a>
+	{% endif %}
+{% endblock %}

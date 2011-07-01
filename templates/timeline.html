@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+			<aside>
+				<a href="{{ url_for("static", filename="avatars/"+session["username"]+".png") }}">
+					<img src="{{ url_for("static", filename="avatars/"+session["username"]+".png") }}" alt="Avatar">
+				</a>
+				<ul>
+					<li>
+						<img src="{{ url_for("static", filename="delete.png") }}" alt="-">
+						<span>Nicht verfügbar!</span>
+					</li>
+				</ul>
+			</aside>
+			<section id="posts">
+				{% if errormsg %}
+					<div class="message">
+						<img src="{{ url_for("static", filename="error.png") }}" alt="Fehler: ">
+						<span>{{ errormsg }}</span>
+					</div>
+				{% endif %}
+				<form action="{{ url_for("index") }}" method="post">
+					<textarea name="entry" maxlength="170" id="entry" onkeyup="count_keys();"></textarea>
+					<input type="submit" value="Speichern">
+					<span id="counter">170</span>
+				</form>
+				{% for entry in entries %}
+					<article>
+						<p>{{ entry.content }}</p>
+						<small>{{ entry.datetime }}</small>
+					</article>
+				{% else %}
+					<article>
+						<p>Sorry, bisher hast Du dich nicht über dein Leben ausgelassen.</p>
+					</article>
+				{% endfor %}
+			</section>
+{% endblock %}
