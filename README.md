@@ -14,7 +14,7 @@ The big Forever Alone is a rage comic character. Look at [knowyourmeme](http://k
 
 Installation
 ------------
-The requirements of this are: [flask](http://flask.pocoo.org), a database, a webserver with fastCGI support.
+The requirements of this are: [flask](http://flask.pocoo.org), [imagemagick](http://www.imagemagick.org/), a database, a webserver with fastCGI support.
 
 First you need the database. The code is designed for MySQL, but it's not hard to change the database engine because the python database modules seems to have the same API. Just put the schema.sql-file into MySQL.
 
