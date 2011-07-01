@@ -18,7 +18,7 @@ The requirements of this are: [flask](http://flask.pocoo.org), a database, a web
 
 First you need the database. The code is designed for MySQL, but it's not hard to change the database engine because the python database modules seems to have the same API. Just put the schema.sql-file into MySQL.
 
-Now you have to fit the configuration to your setup. The configuration is placed in the `foreveralonebook.py` after the `# CONFIGURATION`-comment. You have to change the SECRET_KEY for a secure system.
+Now you have to fit the configuration to your setup. The configuration is placed in the `foreveralonebook.py` after the `# CONFIGURATION`-comment. You have to change the SECRET_KEY for a secure system. The best way to create a secret for it is /dev/random, but /dev/urandom is a bit faster as you know ;) Use something like that: `$ < /dev/urandom tr -dc A-Za-z0-9 | head -c256`.
 
 Create a temporary directory for the avatar-uploads in /tmp/, name it feab. Short: Create /tmp/feab.
 
